@@ -1,9 +1,24 @@
 class PostsController < ApplicationController
+  include ActionController::MimeResponds
+
   before_action :authenticate_user!
 
   def index
     @post = Post.new
-    timeline_posts
+    respond_to do |format|
+      format.html { timeline_posts }
+      format.xml  { render :xml => timeline_posts }
+      format.json { render :json => timeline_posts }
+    end
+  end
+
+  def show
+    @posts = Post.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @posts }
+      format.json { render :json => @posts }
+    end
   end
 
   def create

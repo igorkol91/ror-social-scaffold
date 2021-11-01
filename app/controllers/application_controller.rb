@@ -1,6 +1,4 @@
-class ApplicationController < ActionController::API
-  protect_from_forgery with: :exception
-
+class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

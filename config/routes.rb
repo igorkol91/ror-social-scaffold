@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   post 'friendships/create'
   root 'posts#index'
+  get 'posts/show'
 
   devise_for :users
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
       delete :destroy
     end
   end
-  resources :posts, only: [:index, :create] do
+  resources :posts, only: [:index, :show, :create] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
