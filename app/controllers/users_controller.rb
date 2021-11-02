@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/PerceivedComplexity
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -46,3 +47,4 @@ class UsersController < ApplicationController
     end
   end
 end
+# rubocop:enable Metrics/PerceivedComplexity
