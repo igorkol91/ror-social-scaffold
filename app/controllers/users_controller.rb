@@ -27,8 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity
-
   def destroy
     user = User.find(params[:friend_id])
     friend1 = Friendship.where('friend_id = ? and user_id = ?', user.id, current_user.id).first
@@ -47,6 +45,4 @@ class UsersController < ApplicationController
       end
     end
   end
-
-  # rubocop:enable Metrics/PerceivedComplexity
 end
