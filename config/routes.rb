@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post :auth, to: "authentication#create"
       resources :posts, only: [:index, :create] do
         resources :comments, only: [:index, :create]
       end
