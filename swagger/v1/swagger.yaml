@@ -1,0 +1,50 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/register":
+    post:
+      summary: Create a user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '422':
+          description: OK
+  "/api/v1/auth":
+    post:
+      summary: Sign in a user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  "/api/v1/posts/1/comments":
+    post:
+      summary: Creates a comment
+      tags:
+      - Comment
+      parameters: []
+      responses:
+        '200':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: text
+              required:
+              - content
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
